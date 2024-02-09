@@ -1,7 +1,10 @@
 data/asm/
+data/asm_anno/
 data/ref/
+data/ref_anno/
 data/ref_gff/
 data/vcf_dbs/
+data/annotation_keyfile*
 output/
 output/logging/
 src/phg/

@@ -2,7 +2,9 @@
 
 DIRS=(
     "data/asm"
+    "data/asm_anno"
     "data/ref"
+    "data/ref_anno"
     "data/ref_gff"
     "data/vcf_dbs"
     "output"
@@ -25,3 +27,8 @@ DEST_REF_GFF_DIR="$DEST_DIR/ref_gff"
 
 PHG_SRC="src/phg/bin/phg"
 PHG_DB_DIR="data/vcf_dbs"
+
+N_THREADS=40
+
+REF_GFF_ID="PhaVulg1.gff"
+REF_FA_ID="PhaVulg1.fa"

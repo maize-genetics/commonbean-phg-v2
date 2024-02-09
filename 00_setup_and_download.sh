@@ -17,7 +17,7 @@ for directory in "${DIRS[@]}"; do
     fi
 done
 
-log "Working directory setup completed."
+log "Working directory setup completed"
 
 
 # Declare an associative array to store file type and filename pairs
@@ -40,11 +40,17 @@ for file in "${!FA_DATA[@]}"; do
     fi
 done
 
-log "FASTA data downloaded."
+log "FASTA data downloaded"
+
+
+# Convert .fna to .fa (if they exist - needed for current version of BioKotlin)
+log "Checking for .fna extensions"
+convert_fna_to_fa $DEST_REF_DIR
+convert_fna_to_fa $DEST_ASM_DIR
 
 
 # Download PHGv2
-log "Begin PHGv2 download."
+log "Begin PHGv2 download"
 curl -s https://api.github.com/repos/maize-genetics/phg_v2/releases/latest \
     | awk -F': ' '/browser_download_url/ && /\.tar/ {
         gsub(/"/, "", $(NF));
@@ -53,7 +59,7 @@ curl -s https://api.github.com/repos/maize-genetics/phg_v2/releases/latest \
         system("rm *.tar");
     }'
 
-log "PHGv2 downloaded and decompressed."
+log "PHGv2 downloaded and decompressed"
 
 
 # Setup PHGv2 environment

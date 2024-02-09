@@ -10,6 +10,8 @@ DIRS=(
 
 FA_KEY="data/fa_keyfile.csv"
 
+INIT_LOG="output/init_log.txt"
+
 SRC_USR="bm646"
 SRC_SRV_IP="cbsublfs1.biohpc.cornell.edu"
 SRC_SRV="$SRC_USR@$SRC_SRV_IP:/data4/users/wiese/common-bean/vanessa"
@@ -18,3 +20,5 @@ DEST_DIR="data"
 DEST_ASM_DIR="$DEST_DIR/asm"
 DEST_REF_DIR="$DEST_DIR/ref"
 DEST_REF_GFF_DIR="$DEST_DIR/ref_gff"
+
+PHG_SRC="src/phg/bin/phg"

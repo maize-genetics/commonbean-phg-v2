@@ -1,0 +1,14 @@
+name: phgv2-conda
+channels:
+  - bioconda
+  - conda-forge
+  - tiledb
+dependencies:
+  - agc=3.0
+  - anchorwave=1.2.2
+  - bcftools=1.16
+  - gsl=2.7.0
+  - python=3.8
+  - samtools=1.16
+  - tiledb-py=0.22
+  - tiledbvcf-py=0.25

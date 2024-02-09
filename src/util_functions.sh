@@ -8,7 +8,7 @@ download_file() {
 
     rsync -avzh --progress "$SRC_SRV/$file" "$destination_directory"
 
-    echo "Downloaded '$file' ($type) to '$destination_directory'"
+    log "  Downloaded '$file' ($type) to '$destination_directory'"
 }
 
 
@@ -20,4 +20,10 @@ read_csv() {
     while IFS=',' read -r filename type; do
         files_array["$filename"]="$type"
     done < "$file"
+}
+
+
+# Simple logging mechanism
+log() {
+    echo "$(date +'%Y-%m-%d %H:%M:%S') [INFO] - $*" >> "$INIT_LOG"
 }

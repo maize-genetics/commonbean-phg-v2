@@ -17,3 +17,5 @@ Scripts and notes for building a common bean PHG using [v2 architecture](https:/
   + creates working directories and retrieves assemblies.
   + sets up PHGv2 conda environment
   + initializes TileDB instances for data storage
+* `./01_build_load.sh`:
+  + Main PHGv2 code to build and load VCF data 🚧

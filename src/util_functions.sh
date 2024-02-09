@@ -6,7 +6,7 @@ download_file() {
     local type="$2"
     local destination_directory="$3"
 
-    rsync -avzh --progress "$SOURCE_SERVER/$file" "$destination_directory"
+    rsync -avzh --progress "$SRC_SRV/$file" "$destination_directory"
 
     echo "Downloaded '$file' ($type) to '$destination_directory'"
 }

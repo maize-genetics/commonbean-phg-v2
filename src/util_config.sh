@@ -1,18 +1,20 @@
 #!/usr/bin/env bash
 
-DIRECTORIES=(
-    "data/ref"
+DIRS=(
     "data/asm"
-    "src"
+    "data/ref"
+    "data/ref_gff"
     "output"
+    "src"
 )
 
 FA_KEY="data/fa_keyfile.csv"
 
-SOURCE_USER="bm646"
-SOURCE_SERVER_IP="cbsublfs1.biohpc.cornell.edu"
-SOURCE_SERVER="$SOURCE_USER@$SOURCE_SERVER_IP:/data4/users/wiese/common-bean/vanessa"
+SRC_USR="bm646"
+SRC_SRV_IP="cbsublfs1.biohpc.cornell.edu"
+SRC_SRV="$SRC_USR@$SRC_SRV_IP:/data4/users/wiese/common-bean/vanessa"
 
-DESTINATION_DIRECTORY="data"
-REF_DESTINATION_DIRECTORY="$DESTINATION_DIRECTORY/ref"
-ASM_DESTINATION_DIRECTORY="$DESTINATION_DIRECTORY/asm"
+DEST_DIR="data"
+DEST_ASM_DIR="$DEST_DIR/asm"
+DEST_REF_DIR="$DEST_DIR/ref"
+DEST_REF_GFF_DIR="$DEST_DIR/ref_gff"

@@ -54,3 +54,19 @@ curl -s https://api.github.com/repos/maize-genetics/phg_v2/releases/latest \
     }'
 
 log "PHGv2 downloaded and decompressed."
+
+
+# Setup PHGv2 environment
+log "START  - Setting up PHGv2 environment"
+"$PHG_SRC" setup-environment --env-file data/phg_environment.yml
+mv *.log output/logging/
+log "FINISH - Setting up PHGv2 environment"
+
+
+# Initialize TileDB instances
+log "START  - Initializing TileDB instances"
+"$PHG_SRC" initdb \
+    --db-path $PHG_DB_DIR \
+    --gvcf-anchor-gap 1000000 \
+    --hvcf-anchor-gap 1000
+log "FINISH - Initializing TileDB instances"

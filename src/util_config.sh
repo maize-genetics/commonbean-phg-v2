@@ -4,13 +4,15 @@ DIRS=(
     "data/asm"
     "data/ref"
     "data/ref_gff"
+    "data/vcf_dbs"
     "output"
+    "output/logging"
     "src"
 )
 
 FA_KEY="data/fa_keyfile.csv"
 
-INIT_LOG="output/init_log.txt"
+INIT_LOG="output/logging/init.log"
 
 SRC_USR="bm646"
 SRC_SRV_IP="cbsublfs1.biohpc.cornell.edu"
@@ -22,3 +24,4 @@ DEST_REF_DIR="$DEST_DIR/ref"
 DEST_REF_GFF_DIR="$DEST_DIR/ref_gff"
 
 PHG_SRC="src/phg/bin/phg"
+PHG_DB_DIR="data/vcf_dbs"

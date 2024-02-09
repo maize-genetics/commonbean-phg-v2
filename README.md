@@ -13,4 +13,7 @@ Scripts and notes for building a common bean PHG using [v2 architecture](https:/
 * [`src/`](src)
   + `utitl_config.sh` - defining global parameters.
   + `util_functions.sh` - helper functions.
-* `./00_setup_and_download.sh` - creates working directories and retrieves assemblies.
+* `./00_setup_and_download.sh`:
+  + creates working directories and retrieves assemblies.
+  + sets up PHGv2 conda environment
+  + initializes TileDB instances for data storage

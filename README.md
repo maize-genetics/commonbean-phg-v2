@@ -8,7 +8,8 @@ Scripts and notes for building a common bean PHG using [v2 architecture](https:/
 
 ## Repo structure
 * [`data/`](data)
-  + `fa_keyfile.csv` - files to pull from `CBSUBLFS1`
+  + `fa_keyfile.csv` - files to pull from `CBSUBLFS1`.
+  + `phg_environment.yml` - Conda environment setup.
 * [`src/`](src)
   + `utitl_config.sh` - defining global parameters.
   + `util_functions.sh` - helper functions.

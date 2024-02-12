@@ -103,3 +103,54 @@ convert_fna_to_fa() {
 }
 
 
+## ----
+# Function to record memory usage
+#
+# @param $1 time interval (in seconds)
+# @param $2 output file path
+# @param $3 delimiter character (defaults to ',')
+#
+# @return a delimited file detailing memory usage for n time intervals
+record_memory_usage() {
+    local interval="$1"
+    local output_file="$2"
+    local delimiter="${3:-,}"  # Set default delimiter to comma
+    
+    # Formatting variables
+    local bold="\e[1m"
+    local green="\e[32m"
+    local blue="\e[34m"
+    local reset="\e[0m"
+
+    # Add header to CSV file
+    echo -e "time_stamp${delimiter}total_mb${delimiter}used_mb${delimiter}free_mb" > "$output_file"
+    
+    # Print recording messages for user
+    echo -e "Recording memory usage every ${bold}${green}${interval}${reset} second(s)..."
+    echo -e "(Press ${bold}${blue}Ctrl+C${reset} to stop recording)"  # Prompt to stop recording
+
+    # Main loop
+    while true; do
+        # Get memory usage using the free command and parse using awk
+        memory_info=$(free | awk \
+            -v timestamp="$(date +'%Y-%m-%d %H:%M:%S')" \
+            -v delimiter="$delimiter" \
+            'NR==2 {
+                total=$2/1024
+                used=$3/1024
+                free=$4/1024
+                printf "%s%s%d%s%d%s%d\n",
+                    timestamp, delimiter,
+                    total,     delimiter,
+                    used,      delimiter,
+                    free
+            }')
+
+        # Append memory usage information to the output file
+        echo "$memory_info" >> "$output_file"
+
+        # Sleep for the specified interval
+        sleep "$interval"
+    done
+}
+
